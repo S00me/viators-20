@@ -106,5 +106,7 @@ def parse_gpx():
         except Exception as e:
             return jsonify({'error': str(e)}), 500
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=3000, debug=True)
+if __name__ == "__main__":
+    # Use the PORT Render gives us, or default to 5000 for local testing
+    port = int(os.environ.get("PORT", 3000))
+    app.run(host='0.0.0.0', port=port)
